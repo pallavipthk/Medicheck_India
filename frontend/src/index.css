@@ -1,0 +1,509 @@
+/* MediCheck India - Dual Theme (Light & Dark) Design System with 4D Depth & Realistic Micro-Interactions */
+
+:root {
+  /* Default Light Theme Variables */
+  --bg-page: #F8FAF9;
+  --surface: #FFFFFF;
+  --surface-alt: #F1F5F3;
+  --surface-hover: #EBF2EE;
+  
+  --text-primary: #17352F;
+  --text-secondary: #667580;
+  --text-muted: #8E9EA8;
+  
+  --accent-teal: #168C78;
+  --accent-teal-dark: #0F6A5B;
+  --accent-teal-light: #1FB39A;
+  --accent-mint: #E5F5EF;
+  --accent-mint-light: #F2FAF6;
+  
+  --border-subtle: #E0E9E5;
+  --border-strong: #C4D6CE;
+
+  /* Regulatory Status Palette */
+  --status-danger: #DC2626;
+  --status-danger-bg: #FEF2F2;
+  --status-danger-border: #FCA5A5;
+  
+  --status-warning: #D97706;
+  --status-warning-bg: #FFFBEB;
+  --status-warning-border: #FCD34D;
+  
+  --status-neutral: #168C78;
+  --status-neutral-bg: #E5F5EF;
+  --status-neutral-border: #BCE3D5;
+  
+  --status-info: #2563EB;
+  --status-info-bg: #EFF6FF;
+  --status-info-border: #BFDBFE;
+
+  /* Typography */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* 3D Depth & Realistic Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(23, 53, 47, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(23, 53, 47, 0.07), 0 2px 4px -2px rgba(23, 53, 47, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(23, 53, 47, 0.08), 0 4px 6px -4px rgba(23, 53, 47, 0.04);
+  --shadow-card: 0 1px 3px rgba(23, 53, 47, 0.06), 0 1px 2px rgba(23, 53, 47, 0.04);
+  --shadow-3d: 0 20px 40px -15px rgba(22, 140, 120, 0.15), 0 10px 20px -8px rgba(23, 53, 47, 0.08);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(224, 233, 229, 0.85);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Layout */
+  --sidebar-width: 270px;
+  --header-height: 64px;
+}
+
+/* Dark Theme Overrides */
+[data-theme="dark"],
+.dark {
+  --bg-page: #0B111A;
+  --surface: #111C28;
+  --surface-alt: #162434;
+  --surface-hover: #1D2F44;
+  
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  
+  --accent-teal: #00D492;
+  --accent-teal-dark: #00A873;
+  --accent-teal-light: #34D399;
+  --accent-mint: #0C2B24;
+  --accent-mint-light: #133D35;
+  
+  --border-subtle: #1E2D3D;
+  --border-strong: #334B66;
+
+  /* Regulatory Status Palette (Dark Contrast Tuned) */
+  --status-danger: #F87171;
+  --status-danger-bg: #281114;
+  --status-danger-border: #601C24;
+  
+  --status-warning: #FBBF24;
+  --status-warning-bg: #2B1F0B;
+  --status-warning-border: #664917;
+  
+  --status-neutral: #00D492;
+  --status-neutral-bg: #0C2B24;
+  --status-neutral-border: #164E40;
+  
+  --status-info: #60A5FA;
+  --status-info-bg: #10223A;
+  --status-info-border: #1E40AF;
+
+  /* 3D Depth & Realistic Shadows (Dark Mode) */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 20px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-3d: 0 20px 45px -10px rgba(0, 212, 146, 0.22), 0 0 25px 0 rgba(0, 0, 0, 0.65);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(17, 28, 40, 0.88);
+  --glass-border: rgba(46, 68, 92, 0.65);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--accent-teal);
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-teal);
+}
+
+/* Common Utility Classes */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+.card-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 14.5px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background-color: var(--accent-teal);
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(22, 140, 120, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .btn-primary {
+  color: #0B111A;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 212, 146, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-teal-dark);
+  box-shadow: 0 8px 18px rgba(22, 140, 120, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background-color: var(--accent-teal-light);
+  box-shadow: 0 8px 22px rgba(0, 212, 146, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(22, 140, 120, 0.2);
+}
+
+.btn-secondary {
+  background-color: var(--accent-mint);
+  color: var(--accent-teal);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-teal);
+  color: var(--accent-teal);
+  background-color: var(--accent-mint-light);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background-color: var(--status-danger);
+  color: #FFFFFF;
+}
+
+.btn-danger:hover {
+  background-color: #B91C1C;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: var(--radius-md);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-danger {
+  background-color: var(--status-danger-bg);
+  color: var(--status-danger);
+  border: 1px solid var(--status-danger-border);
+}
+
+.badge-warning {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning);
+  border: 1px solid var(--status-warning-border);
+}
+
+.badge-neutral {
+  background-color: var(--status-neutral-bg);
+  color: var(--accent-teal);
+  border: 1px solid var(--status-neutral-border);
+}
+
+.badge-info {
+  background-color: var(--status-info-bg);
+  color: var(--status-info);
+  border: 1px solid var(--status-info-border);
+}
+
+/* Form Styles */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 11px 14px;
+  background-color: var(--surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 14.5px;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 3px rgba(22, 140, 120, 0.18);
+}
+
+[data-theme="dark"] .form-input:focus {
+  box-shadow: 0 0 0 3px rgba(0, 212, 146, 0.25);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* 4D Particle & Light Shimmer Animations */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes floatGentle {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.float-3d {
+  animation: floatGentle 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes specularGleam {
+  0% { transform: translateX(-100%) rotate(45deg); opacity: 0; }
+  20% { opacity: 0.6; }
+  40% { transform: translateX(200%) rotate(45deg); opacity: 0; }
+  100% { transform: translateX(200%) rotate(45deg); opacity: 0; }
+}
+
+.shimmer-specular {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-specular::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  animation: specularGleam 7s infinite ease-in-out;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .shimmer-specular::after {
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(0, 212, 146, 0.25) 40%,
+    rgba(255, 255, 255, 0) 60%
+  );
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes laserScan {
+  0% { top: 0%; opacity: 0.2; }
+  50% { opacity: 0.9; }
+  100% { top: 100%; opacity: 0.2; }
+}
+
+.laser-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(22, 140, 120, 0) 0%, var(--accent-teal) 50%, rgba(22, 140, 120, 0) 100%);
+  box-shadow: 0 0 12px 2px var(--accent-teal);
+  animation: laserScan 2.5s ease-in-out infinite alternate;
+}
+
+/* Steady Card Hover */
+.gyro-card-4d {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.gyro-card-4d:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-teal);
+  box-shadow: var(--shadow-md);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--surface-hover);
+  color: var(--accent-teal);
+  border-color: var(--accent-teal);
+}
+
+/* Leaflet Map Dark Mode Styling */
+[data-theme="dark"] .leaflet-tile {
+  filter: brightness(0.74) invert(1) contrast(1.2) hue-rotate(180deg) saturate(1.2);
+}
+
+[data-theme="dark"] .leaflet-container {
+  background-color: var(--surface-alt);
+}
+
+[data-theme="dark"] .leaflet-popup-content-wrapper,
+[data-theme="dark"] .leaflet-popup-tip {
+  background-color: var(--surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .leaflet-popup-content {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .leaflet-control-zoom a {
+  background-color: var(--surface) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+[data-theme="dark"] .leaflet-control-zoom a:hover {
+  background-color: var(--surface-hover) !important;
+  color: var(--accent-teal) !important;
+}
+
+[data-theme="dark"] .leaflet-control-attribution {
+  background-color: rgba(17, 28, 40, 0.85) !important;
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .leaflet-control-attribution a {
+  color: var(--accent-teal) !important;
+}

@@ -1,0 +1,17 @@
+{
+  "short_name": "MediCheck",
+  "name": "MediCheck India — Pharmaceutical Intelligence & Safety",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#F8FAF9",
+  "theme_color": "#168C78",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "scope": "/"
+}
